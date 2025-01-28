@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: study
+  sql:
+    init:
+      mode: always
+      schema-locations:
+        - classpath:schema/*.sql
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://tommy:password@localhost:3306/batch_lecture?tcpKeepAlive=true&useServerPrepareStatement=true&tcpNoDelay=true&ssl=false
+      driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 4298
+---
