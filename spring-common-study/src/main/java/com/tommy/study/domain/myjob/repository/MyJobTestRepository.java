@@ -1,6 +1,6 @@
-package com.tommy.study.domain.test.repository;
+package com.tommy.study.domain.myjob.repository;
 
-import com.tommy.study.domain.test.entity.MyJobTest;
+import com.tommy.study.domain.myjob.entity.MyJobTest;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

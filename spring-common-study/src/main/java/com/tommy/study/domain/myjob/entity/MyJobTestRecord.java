@@ -1,4 +1,4 @@
-package com.tommy.study.domain.test.entity;
+package com.tommy.study.domain.myjob.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;

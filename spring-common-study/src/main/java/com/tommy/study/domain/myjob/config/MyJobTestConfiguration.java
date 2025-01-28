@@ -1,9 +1,9 @@
-package com.tommy.study.domain.test.config;
+package com.tommy.study.domain.myjob.config;
 
-import com.tommy.study.domain.test.entity.MyJobTest;
-import com.tommy.study.domain.test.entity.MyJobTestRecord;
-import com.tommy.study.domain.test.repository.MyJobTestRecordRepository;
-import com.tommy.study.domain.test.repository.MyJobTestRepository;
+import com.tommy.study.domain.myjob.entity.MyJobTest;
+import com.tommy.study.domain.myjob.entity.MyJobTestRecord;
+import com.tommy.study.domain.myjob.repository.MyJobTestRecordRepository;
+import com.tommy.study.domain.myjob.repository.MyJobTestRepository;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;

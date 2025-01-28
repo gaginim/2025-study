@@ -12,4 +12,10 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
 server:
   port: 4298
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
 ---
