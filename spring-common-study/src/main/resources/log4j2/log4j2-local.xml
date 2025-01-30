@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="warn" shutDownHook="disable">
+    <Loggers>
+        <Logger name="org.springframework.jdbc" level="debug"/>
+    </Loggers>
+</Configuration>

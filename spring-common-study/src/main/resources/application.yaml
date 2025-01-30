@@ -16,6 +16,10 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     enabled: true
+logging:
+  log4j2:
+    config:
+      override: classpath:log4j2/log4j2-base.xml, classpath:log4j2/log4j2-${spring.profiles.active}.xml
 ---
 spring:
   config:
