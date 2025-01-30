@@ -1,6 +1,8 @@
 package com.tommy.study.config.custom_security;
 
 import com.tommy.study.domain.member.repository.MemberRepository;
+import com.tommy.study.exception.ApplicationException;
+import com.tommy.study.exception.ApplicationExceptionCode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +27,7 @@ public class CustomUserDetailService implements UserDetailsService {
     try {
       var member = memberRepository.findByUserId(username).orElse(null);
       if (ObjectUtils.isEmpty(member))
-        throw new IllegalArgumentException("there is no member information.");
+        throw new ApplicationException(ApplicationExceptionCode.MEMBER_NOT_EXIST);
 
       return User.builder().username(username).password(member.getPassword()).roles("USER").build();
     } catch (Exception ex) {

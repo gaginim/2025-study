@@ -3,7 +3,10 @@ package com.tommy.study.domain.login.controller;
 import com.tommy.study.config.custom_security.JwtUtil;
 import com.tommy.study.domain.login.dto.LoginDto;
 import com.tommy.study.domain.member.repository.MemberRepository;
+import com.tommy.study.exception.ApplicationException;
+import com.tommy.study.exception.ApplicationExceptionCode;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,10 +31,10 @@ public class LoginController {
 
     var member = memberRepository.findByUserId(request.getUsername()).orElse(null);
     if (ObjectUtils.isEmpty(member))
-      throw new IllegalArgumentException("there is no member information.");
+      throw new ApplicationException(ApplicationExceptionCode.MEMBER_NOT_EXIST);
 
     if (!passwordEncoder.matches(request.getPassword(), member.getPassword()))
-      throw new IllegalArgumentException("wrong password");
+      throw new ApplicationException(ApplicationExceptionCode.MEMBER_WRONG_PASSWORD);
 
     authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));

@@ -3,8 +3,8 @@ POST http://localhost:4298/auth/login
 Content-Type: application/json
 
 {
-  "username": "tommy",
-  "password": "1234"
+  "username": "toaaammy",
+  "password": "12dd34"
 }
 
 ### 인증 테스트
