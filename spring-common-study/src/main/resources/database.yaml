@@ -1,0 +1,20 @@
+spring:
+  config:
+    activate:
+      on-profile: common
+  sql:
+    init:
+      mode: always
+      schema-locations:
+        - classpath:schema/*.sql
+      data-locations:
+        - classpath:schema/data/init_data_${spring.profiles.active}.sql
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://tommy:password@localhost:3306/batch_lecture?tcpKeepAlive=true&useServerPrepareStatement=true&tcpNoDelay=true&ssl=false
+      driver-class-name: com.mysql.jdbc.Driver
