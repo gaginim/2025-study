@@ -1,0 +1,12 @@
+### token 가져오기
+POST http://localhost:4298/auth/login
+Content-Type: application/json
+
+{
+  "username": "tommy",
+  "password": "1234"
+}
+
+### 인증 테스트
+GET http://localhost:4298/good/aaaa
+Authorization: Bearer {{ user_token }}

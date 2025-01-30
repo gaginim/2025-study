@@ -11,6 +11,4 @@ public abstract class LoginDto {
     private String username;
     private String password;
   }
-
-
 }
