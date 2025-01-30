@@ -3,6 +3,7 @@ spring:
     active: local
     group:
       local: common, local
+      dev: common, dev
 ---
 spring:
   config:
@@ -20,10 +21,23 @@ logging:
   log4j2:
     config:
       override: classpath:log4j2/log4j2-base.xml, classpath:log4j2/log4j2-${spring.profiles.active}.xml
+mysql:
+  username: tommy
+  password: password
 ---
 spring:
   config:
     activate:
       on-profile: local
+server:
+  port: 4298
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import:
+      - classpath:database.yaml
+      - classpath:vault.yaml
 server:
   port: 4298

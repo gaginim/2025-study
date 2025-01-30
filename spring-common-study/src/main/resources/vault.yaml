@@ -1,0 +1,13 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import: vault://
+  cloud:
+    vault:
+      uri: http://localhost:8200
+      token: 00000000-0000-0000-0000-000000000000
+      scheme: http
+      kv:
+        application-name: secret/application
+        profiles: properties

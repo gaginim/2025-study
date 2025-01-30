@@ -1,5 +1,6 @@
 package com.tommy.study.config;
 
+import com.tommy.study.config.service.DBConnectionPropertiesService;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import javax.sql.DataSource;
@@ -25,12 +26,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan(basePackages = "com.tommy.study.domain.**.entity")
 public class JdbcConfiguration extends AbstractJdbcConfiguration {
 
+  private final DBConnectionPropertiesService dbConnectionPropertiesService;
+
   @Bean("jdbcHikariConfig")
   @ConfigurationProperties(prefix = "spring.datasource.hikari")
   public HikariConfig jdbcHikariConfig() {
     HikariConfig hikariConfig = new HikariConfig();
-    hikariConfig.setUsername("tommy");
-    hikariConfig.setPassword("password");
+    hikariConfig.setUsername(dbConnectionPropertiesService.getUserName());
+    hikariConfig.setPassword(dbConnectionPropertiesService.getPassword());
     return hikariConfig;
   }
 
