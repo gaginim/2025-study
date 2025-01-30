@@ -1,5 +1,7 @@
 package com.tommy.study.exception;
 
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,11 +10,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+  private final MessageSource messageSource;
+
+  public GlobalExceptionHandler(MessageSource messageSource) {
+    this.messageSource = messageSource;
+  }
+
   @ExceptionHandler({ApplicationException.class})
   protected ResponseEntity handleApplicationException(ApplicationException ex) {
+    var exceptionMessage =
+        messageSource.getMessage(
+            ex.getApplicationExceptionCode().getMessage(), null, LocaleContextHolder.getLocale());
+
     return new ResponseEntity(
         ApplicationExceptionDto.builder()
-            .message(ex.getApplicationExceptionCode().getMessage())
+            .message(exceptionMessage)
             .code(ex.getApplicationExceptionCode().getCode())
             .statusCode(ex.getApplicationExceptionCode().getStatus().value())
             .build(),

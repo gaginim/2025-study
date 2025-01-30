@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/good")
+@RequestMapping("/message")
 @RequiredArgsConstructor
 @Log4j2
 public class MessageController {
 
-  @GetMapping("/{message}")
+  @GetMapping("{message}")
   public String getMessage(@PathVariable(value = "message") String message) {
     return "hello " + message;
   }

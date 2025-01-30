@@ -1,12 +1,13 @@
 ### token 가져오기
 POST http://localhost:4298/auth/login
 Content-Type: application/json
+Accept-Language: ko
 
 {
-  "username": "toaaammy",
-  "password": "12dd34"
+  "username": "tommy",
+  "password": "1234"
 }
 
 ### 인증 테스트
-GET http://localhost:4298/good/aaaa
+GET http://localhost:4298/message/aaaa
 Authorization: Bearer {{ user_token }}
