@@ -1,8 +1,11 @@
 package com.tommy.study.config.custom_security;
 
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.AuditorAware;
+import org.springframework.data.jdbc.repository.config.EnableJdbcAuditing;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,6 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
+@EnableJdbcAuditing
 public class SecurityConfig {
 
   private final JwtAuthenticationFilter jwtAuthenticationFilter;
@@ -38,11 +42,16 @@ public class SecurityConfig {
   }
 
   @Bean
-  public AuthenticationManager authenticationManager(
-      UserDetailsService userDetailsService) throws Exception {
+  public AuthenticationManager authenticationManager(UserDetailsService userDetailsService)
+      throws Exception {
     var authProvider = new DaoAuthenticationProvider();
     authProvider.setUserDetailsService(userDetailsService);
     authProvider.setPasswordEncoder(passwordEncoder);
     return new ProviderManager(authProvider);
+  }
+
+  @Bean
+  public AuditorAware<String> auditorAware() {
+    return () -> Optional.of("system");
   }
 }

@@ -11,12 +11,12 @@ import org.springframework.data.relational.core.mapping.Table;
 @Builder
 @Table("my_job_test")
 public record MyJobTestRecord(
-    @CreatedDate @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime createdAt,
-    @CreatedBy String createdBy,
     @Id Long id,
-    String name) {
+    String name,
+    @CreatedDate @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime createdAt,
+    @CreatedBy String createdBy) {
 
   public MyJobTestRecord changeName(String name) {
-    return new MyJobTestRecord(this.createdAt, this.createdBy, this.id, name);
+    return new MyJobTestRecord(this.id, name, this.createdAt, this.createdBy);
   }
 }

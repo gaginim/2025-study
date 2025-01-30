@@ -6,13 +6,10 @@ import com.tommy.study.domain.myjob.repository.MyJobTestRecordRepository;
 import com.tommy.study.domain.myjob.repository.MyJobTestRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/test")
@@ -35,13 +32,7 @@ public class TestController {
   @Operation(summary = "Save MyJob", description = "test endpoint")
   @PostMapping("/{name}")
   public MyJobTestRecord saveMyJobTest(@PathVariable(value = "name") String name) {
-    var myJobTest =
-        myJobTestRecordRepository.save(
-            MyJobTestRecord.builder()
-                .name(name)
-                .createdAt(LocalDateTime.now())
-                .createdBy(name)
-                .build());
+    var myJobTest = myJobTestRecordRepository.save(MyJobTestRecord.builder().name(name).build());
     log.info("MyJobTestRecord => {}", myJobTest.name());
     return myJobTest;
   }

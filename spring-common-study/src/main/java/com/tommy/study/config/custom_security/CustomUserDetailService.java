@@ -5,12 +5,11 @@ import com.tommy.study.exception.ApplicationException;
 import com.tommy.study.exception.ApplicationExceptionCode;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.util.ObjectUtils;
 
 @Log4j2
@@ -19,7 +18,6 @@ import org.springframework.util.ObjectUtils;
 public class CustomUserDetailService implements UserDetailsService {
 
   private final MemberRepository memberRepository;
-  private final PasswordEncoder passwordEncoder;
 
   // TODO: 권한별로 관리되도록 수정해야 함
   @Override
