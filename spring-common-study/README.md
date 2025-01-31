@@ -6,6 +6,7 @@
 4. log4j2
 5. vault 추가 (dev 환경에서 실행 가능)
 6. aop 추가
+7. jsonType 추가
 
 # vault 적용 사전작업
 

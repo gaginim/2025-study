@@ -11,3 +11,17 @@ Accept-Language: ko
 ### 인증 테스트
 GET http://localhost:4298/message/aaaa
 Authorization: Bearer {{ user_token }}
+
+### jsonType 테스트
+POST http://localhost:4298/non-schema
+Content-Type: application/json
+Accept-Language: ko
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0b21teSIsImlhdCI6MTczODMxMDMwNSwiZXhwIjoxNzM5MTc0MzA1fQ.AdKiOja4h5eHYJWkky9euIgtM5FYDw79CyEDBmgaz0g
+
+{
+  "domainId": "domainIdTest",
+  "projectId": "projectIdTest",
+  "resourceId": "resourceIdTest",
+  "productId": "productIdTest",
+  "type": "INTERVAL"
+}
