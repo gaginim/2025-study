@@ -44,6 +44,9 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
         implementation 'com.fasterxml.jackson.core:jackson-databind'
 
+        // aop
+        implementation 'org.springframework.boot:spring-boot-starter-aop:3.4.2'
+
         // vault
         implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
 
