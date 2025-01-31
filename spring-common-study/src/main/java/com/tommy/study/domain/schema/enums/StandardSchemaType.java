@@ -1,6 +1,6 @@
 package com.tommy.study.domain.schema.enums;
 
-public enum NonStandardSchemaType {
+public enum StandardSchemaType {
   EVENT,
   INTERVAL,
   STOPWATCH

@@ -1,9 +1,9 @@
 package com.tommy.study.domain.schema.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.tommy.study.domain.schema.enums.NonStandardSchemaType;
+import com.tommy.study.domain.schema.enums.StandardSchemaType;
 
-public interface NonStandardSchemaCreateAble {
+public interface StandardSchemaCreateAble {
 
   String getDomainId();
 
@@ -14,5 +14,5 @@ public interface NonStandardSchemaCreateAble {
   String getResourceId();
 
   @JsonIgnore
-  NonStandardSchemaType getNonStandardSchemaType();
+  StandardSchemaType getStandardSchemaType();
 }

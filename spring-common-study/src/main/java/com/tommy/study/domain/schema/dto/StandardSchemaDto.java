@@ -1,16 +1,16 @@
 package com.tommy.study.domain.schema.dto;
 
-import com.tommy.study.domain.schema.enums.NonStandardSchemaType;
+import com.tommy.study.domain.schema.enums.StandardSchemaType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-public abstract class NonStandardSchemaDto {
+public abstract class StandardSchemaDto {
 
   @Getter
   @NoArgsConstructor(access = AccessLevel.PRIVATE)
   public static class Request {
-    private NonStandardSchemaType type;
+    private StandardSchemaType type;
     private String domainId;
     private String projectId;
     private String productId;

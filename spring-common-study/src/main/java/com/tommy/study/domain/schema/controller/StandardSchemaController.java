@@ -1,9 +1,9 @@
 package com.tommy.study.domain.schema.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.tommy.study.domain.schema.dto.NonStandardSchemaDto;
-import com.tommy.study.domain.schema.entity.common.NonStandardSchema;
-import com.tommy.study.domain.schema.service.NonStandardSchemaService;
+import com.tommy.study.domain.schema.dto.StandardSchemaDto;
+import com.tommy.study.domain.schema.entity.common.StandardSchema;
+import com.tommy.study.domain.schema.service.StandardSchemaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/non-schema")
 @RequiredArgsConstructor
-public class NonStandardSchemaController {
-  private final NonStandardSchemaService nonStandardSchemaService;
+public class StandardSchemaController {
+  private final StandardSchemaService standardSchemaService;
 
   @PostMapping
-  public NonStandardSchema valid(@RequestBody NonStandardSchemaDto.Request request)
+  public StandardSchema valid(@RequestBody StandardSchemaDto.Request request)
       throws JsonProcessingException {
-    return nonStandardSchemaService.validNonStandardSchema(request);
+    return standardSchemaService.validStandardSchema(request);
   }
 }

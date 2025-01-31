@@ -2,10 +2,10 @@ package com.tommy.study.domain.schema.entity.common;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.tommy.study.domain.schema.dto.NonStandardSchemaCreateAble;
-import com.tommy.study.domain.schema.entity.NonStandardSchemaEvent;
-import com.tommy.study.domain.schema.entity.NonStandardSchemaInterval;
-import com.tommy.study.domain.schema.entity.NonStandardSchemaStopwatch;
+import com.tommy.study.domain.schema.dto.StandardSchemaCreateAble;
+import com.tommy.study.domain.schema.entity.StandardSchemaEvent;
+import com.tommy.study.domain.schema.entity.StandardSchemaInterval;
+import com.tommy.study.domain.schema.entity.StandardSchemaStopwatch;
 import com.tommy.study.exception.ApplicationException;
 import com.tommy.study.exception.ApplicationExceptionCode;
 import com.tommy.study.utils.StringUtils;
@@ -17,19 +17,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = NonStandardSchemaStopwatch.class, name = "stopwatch"),
-  @JsonSubTypes.Type(value = NonStandardSchemaInterval.class, name = "interval"),
-  @JsonSubTypes.Type(value = NonStandardSchemaEvent.class, name = "event"),
+  @JsonSubTypes.Type(value = StandardSchemaStopwatch.class, name = "stopwatch"),
+  @JsonSubTypes.Type(value = StandardSchemaInterval.class, name = "interval"),
+  @JsonSubTypes.Type(value = StandardSchemaEvent.class, name = "event"),
 })
-public abstract class NonStandardSchema implements NonStandardSchemaCreateAble {
+public abstract class StandardSchema implements StandardSchemaCreateAble {
 
   protected String domainId;
   protected String projectId;
   protected String productId;
   protected String resourceId;
 
-  protected NonStandardSchema(
-      String domainId, String projectId, String productId, String resourceId) {
+  protected StandardSchema(String domainId, String projectId, String productId, String resourceId) {
     this.domainId = domainId;
     this.projectId = projectId;
     this.productId = productId;
