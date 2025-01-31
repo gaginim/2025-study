@@ -19,9 +19,9 @@ Accept-Language: ko
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0b21teSIsImlhdCI6MTczODMxMDMwNSwiZXhwIjoxNzM5MTc0MzA1fQ.AdKiOja4h5eHYJWkky9euIgtM5FYDw79CyEDBmgaz0g
 
 {
-  "domainId": "domainIdTest",
+  "domainId": "11",
   "projectId": "projectIdTest",
   "resourceId": "resourceIdTest",
   "productId": "productIdTest",
-  "type": "INTERVAL"
+  "type": "STOPWATCH"
 }

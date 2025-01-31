@@ -17,7 +17,7 @@ public class NonStandardSchemaController {
   private final NonStandardSchemaService nonStandardSchemaService;
 
   @PostMapping
-  public NonStandardSchema validSchema(@RequestBody NonStandardSchemaDto.Request request)
+  public NonStandardSchema valid(@RequestBody NonStandardSchemaDto.Request request)
       throws JsonProcessingException {
     return nonStandardSchemaService.validNonStandardSchema(request);
   }
