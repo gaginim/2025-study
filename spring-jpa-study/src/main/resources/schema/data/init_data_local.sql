@@ -1,0 +1,1 @@
+INSERT IGNORE INTO member (id, user_id, password, created_at, created_by) VALUES(1, 'tommy', '$2a$10$Ntwad4hQyqdl7/yl/fohmOZpSatYRKCyAm5YCUBuNLlLc1nWAKGiy', NOW(), 'system');
