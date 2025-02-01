@@ -104,6 +104,9 @@ subprojects {
         options.compilerArgs.addAll(['-Xlint:unchecked', '-Xlint:deprecation', '-Amapstruct.defaultComponentModel=spring', '-Amapstruct.defaultInjectionStrategy=constructor', '-Amapstruct.unmappedTargetPolicy=ERROR'])
     }
 
+    clean {
+        delete file('build/generated/sources/annotationProcessor/java/main')
+    }
 
 }
 

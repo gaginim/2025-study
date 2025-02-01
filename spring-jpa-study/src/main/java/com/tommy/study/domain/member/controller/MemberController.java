@@ -1,4 +1,4 @@
-package com.tommy.study.domain.member;
+package com.tommy.study.domain.member.controller;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.tommy.study.domain.member.entity.Member;
