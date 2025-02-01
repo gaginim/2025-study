@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: local
+    group:
+      local: common, local
+      dev: common, dev
+---
+spring:
+  config:
+    activate:
+      on-profile: common
+  application:
+    name: study
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+mysql:
+  username: tommy
+  password: password
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+server:
+  port: 1202
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import:
+      - classpath:database.yaml
+server:
+  port: 1202
