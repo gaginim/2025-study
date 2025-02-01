@@ -11,6 +11,10 @@
 9. [해야할것] async 적용
 10. [해야할것] 불변객체
 11. [해야할것] sentry 적용
+12. [해야할것] kafkaStreams
+13. [해야할것] rabbitMQ
+14. [해야할것] junitTest
+15. [해야할것] spring modulith 추가해보기
 
 # vault 적용 사전작업
 
