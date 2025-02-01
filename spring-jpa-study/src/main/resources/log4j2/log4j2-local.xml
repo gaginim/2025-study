@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="warn" shutDownHook="disable">
+    <Loggers>
+        <Logger name="org.hibernate.SQL" level="debug"/>
+        <Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"/>
+        <Logger name="org.springframework.data.jpa" level="debug"/>
+    </Loggers>
+</Configuration>
