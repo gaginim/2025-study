@@ -9,8 +9,10 @@ spring:
   config:
     activate:
       on-profile: common
+    import:
+      - classpath:database.yaml
   application:
-    name: study
+    name: jpa-study
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

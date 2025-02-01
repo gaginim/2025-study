@@ -9,6 +9,13 @@ spring:
         - classpath:schema/*.sql
       data-locations:
         - classpath:schema/data/init_data_${spring.profiles.active}.sql
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 ---
 spring:
   config:
@@ -18,6 +25,7 @@ spring:
     hikari:
       jdbc-url: jdbc:mysql://tommy:password@localhost:3306/batch_lecture?tcpKeepAlive=true&useServerPrepareStatement=true&tcpNoDelay=true&ssl=false
       driver-class-name: com.mysql.jdbc.Driver
+
 ---
 spring:
   config:
