@@ -9,11 +9,8 @@ import org.springframework.data.annotation.CreatedDate;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
-@Table(name = "member")
 public class Member {
 
   @Id
@@ -30,4 +27,14 @@ public class Member {
   private LocalDateTime createdAt;
 
   @CreatedBy private String createdBy;
+
+  @Builder
+  private Member(
+      Long id, String userId, String password, LocalDateTime createdAt, String createdBy) {
+    this.id = id;
+    this.userId = userId;
+    this.password = password;
+    this.createdAt = createdAt;
+    this.createdBy = createdBy;
+  }
 }

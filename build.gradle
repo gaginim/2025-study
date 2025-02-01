@@ -60,7 +60,7 @@ subprojects {
 
         // swagger
         implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3'
-        
+
         // h2
         runtimeOnly 'com.h2database:h2'
 
@@ -95,9 +95,16 @@ subprojects {
         useJUnitPlatform()
     }
 
+    sourceSets {
+        main.java.srcDirs += 'build/generated/sources/annotationProcessor/java/main' // 생성된 Q 클래스를 찾을 위치
+    }
+
     compileJava {
+        options.annotationProcessorPath = configurations.annotationProcessor
         options.compilerArgs.addAll(['-Xlint:unchecked', '-Xlint:deprecation', '-Amapstruct.defaultComponentModel=spring', '-Amapstruct.defaultInjectionStrategy=constructor', '-Amapstruct.unmappedTargetPolicy=ERROR'])
     }
+
+
 }
 
 

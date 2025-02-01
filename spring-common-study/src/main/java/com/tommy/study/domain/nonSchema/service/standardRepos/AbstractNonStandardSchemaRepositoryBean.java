@@ -6,7 +6,6 @@ import com.tommy.study.domain.schema.entity.common.StandardSchema;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
 import org.springframework.jdbc.core.simple.JdbcClient;
 
 public abstract class AbstractNonStandardSchemaRepositoryBean
@@ -22,7 +21,7 @@ public abstract class AbstractNonStandardSchemaRepositoryBean
     return jdbcClient.sql(getQuery())
             .param("dateId", partitionAble.getDateId())
             .param("hourId", partitionAble.getHourId())
-            .query((rs, _) -> getStandardSchema(rs))
+            .query((rs, __) -> getStandardSchema(rs))
             .list();
   }
 
