@@ -1,5 +1,9 @@
 dependencies {
 
+    // mysql
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+
     // security
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
