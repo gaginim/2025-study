@@ -1,0 +1,21 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: discovery-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: first-service
+          uri: http://localhost:6001
+          predicates:
+            - Path=/first-service/**
+          filters:
+            - RewritePath=/second-service/?(?<segment>.*), /$\{segment}
+        - id: second-service
+          uri: http://localhost:6002
+          predicates:
+            - Path=/second-service/**
+          filters:
+            - RewritePath=/second-service/?(?<segment>.*), /$\{segment}
