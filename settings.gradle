@@ -1,2 +1,2 @@
 rootProject.name = 'study'
-include('spring-common-study', 'spring-jpa-study', 'commerce', 'discoveryservice')
+include('spring-common-study', 'spring-jpa-study', 'commerce', 'discoveryservice', 'discovery-user-service')
