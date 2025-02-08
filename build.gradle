@@ -47,8 +47,6 @@ subprojects {
         // aop
         implementation 'org.springframework.boot:spring-boot-starter-aop:3.4.2'
 
-        // vault
-        implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
 
         // log4j2
         implementation 'org.springframework.boot:spring-boot-starter-log4j2'

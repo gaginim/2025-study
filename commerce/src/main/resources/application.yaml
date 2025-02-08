@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: discovery-service
+server:
+  port: 9000
+eureka:
+  client:
+    register-with-eureka: false # default true. 자기자신을 등록하지 않으려고 false 처리
+    fetch-registry: false #default true
