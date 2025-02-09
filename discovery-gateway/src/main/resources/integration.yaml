@@ -1,1 +1,4 @@
-# todo: endpoint 정보 여기에 모아서 처리하기
+integration:
+  endpoint:
+    first-service-url: http://localhost:6001
+    second-service-url: http://localhost:6002

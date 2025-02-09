@@ -11,6 +11,9 @@ eureka:
 spring:
   application:
     name: discovery-gateway
+  config:
+    import:
+      - classpath:integration.yaml
   cloud:
     gateway:
       default-filters:
@@ -21,7 +24,7 @@ spring:
             postLogger: true
       routes:
         - id: first-service
-          uri: http://localhost:6001
+          uri: ${integration.endpoint.first-service-url}
           predicates:
             - Path=/first-service/**
           filters:
@@ -29,7 +32,7 @@ spring:
         #            - AddRequestHeader=first-request, first-request-header2
         #            - AddResponseHeader=first-response, first-response-header2
         - id: second-service
-          uri: http://localhost:6002
+          uri: ${integration.endpoint.second-service-url}
           predicates:
             - Path=/second-service/**
           filters:
