@@ -1,5 +1,22 @@
 spring:
   application:
     name: discovery-gateway-service
+  profiles:
+    active: local
+    group:
+      local: local
+      test: test
+---
+spring:
+  config:
+    activate:
+      on-profile: local
 server:
   port: 6001
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+server:
+  port: 6002
