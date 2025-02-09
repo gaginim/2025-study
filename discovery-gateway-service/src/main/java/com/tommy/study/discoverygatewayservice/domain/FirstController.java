@@ -1,5 +1,6 @@
 package com.tommy.study.discoverygatewayservice.domain;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class FirstController {
   }
 
   @GetMapping("check")
-  public String check() {
-    return "checking first service";
+  public String check(HttpServletRequest httpServletRequest) {
+    return "checking first service port: " + httpServletRequest.getLocalPort();
   }
 }

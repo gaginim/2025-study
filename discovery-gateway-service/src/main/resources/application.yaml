@@ -6,6 +6,8 @@ spring:
       test: test
 
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     register-with-eureka: true
     fetch-registry: true
@@ -19,7 +21,7 @@ spring:
     activate:
       on-profile: local
 server:
-  port: 6001
+  port: 0
 ---
 spring:
   application:
@@ -28,4 +30,4 @@ spring:
     activate:
       on-profile: test
 server:
-  port: 6002
+  port: 0
