@@ -1,5 +1,9 @@
 integration:
   endpoint:
-    eureka-url: http://127.0.0.1:8761/eureka
-    first-service-url: http://localhost:6001
-    second-service-url: http://localhost:6002
+    eureka-url: http://127.0.0.1:9001/eureka
+    first-service:
+      url: http://localhost:6001
+      alias: lb://discovery-first-service
+    second-service:
+      url: http://localhost:6002
+      alias: lb://discovery-second-service
