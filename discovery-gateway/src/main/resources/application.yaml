@@ -16,7 +16,7 @@ spring:
       default-filters:
         - name: GlobalFilter
           args:
-            baseMessage: Tommy test
+            baseMessage: Global Filter tommy
             preLogger: true
             postLogger: true
       routes:
@@ -33,7 +33,12 @@ spring:
           predicates:
             - Path=/second-service/**
           filters:
-            - DiscoveryCustomFilter
+            - name: DiscoveryCustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Logging Filter tommy
+                preLogger: true
+                postLogger: true
 
-#            - AddRequestHeader=second-request, second-request-header2
-#            - AddResponseHeader=second-response, second-response-header2
+          # - AddRequestHeader=second-request, second-request-header2
+          # - AddResponseHeader=second-response, second-response-header2
