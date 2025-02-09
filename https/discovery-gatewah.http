@@ -1,0 +1,6 @@
+
+### 첫번째 서비스 확인
+GET http://localhost:8000/first-service/message
+
+### 두번째 서비스 확인
+GET http://localhost:8000/second-service/message
