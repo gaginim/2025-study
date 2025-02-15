@@ -1,12 +1,12 @@
-package com.tommy.study.discoveryuserservice;
+package com.tommy.study.discoveryserviceuser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DiscoveryUserServiceApplication {
+public class DiscoveryServiceUserApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(DiscoveryUserServiceApplication.class, args);
+    SpringApplication.run(DiscoveryServiceUserApplication.class, args);
   }
 }

@@ -1,0 +1,3 @@
+integration:
+  greeting:
+    message: tommy hello
