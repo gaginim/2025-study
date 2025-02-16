@@ -5,3 +5,4 @@
     1. org.springframework.boot:spring-boot-configuration-processor 넣어줌
     2. ConfigurationPropertiesScan 을 해서 properties 가 있는 package 를 읽음
     3. ConfigurationProperties 사용
+- h2 db 연결을 위해 root directory 에 local.mv.db 가 있어야 함. 
