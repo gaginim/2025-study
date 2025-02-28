@@ -25,6 +25,8 @@ public class MainInsertSort2775 {
           map[j] = compareOne;
           map[i] = pivotOne;
         }
+
+        // 여기서 break 문 있으면 안됨
       }
     }
 
