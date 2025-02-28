@@ -1,4 +1,4 @@
-package com.example.codeingtest;
+package com.example.codeingtest.sorting.probelm2775;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ import java.util.Scanner;
  문제 푸는 과정:
    - 1번째: 삽입정렬로 품. 그런데 for 문을 두번써서 시간복잡도가 O(n*n) 이됨.
 */
-public class Problem2775 {
+public class MainInsertSort2775 {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
