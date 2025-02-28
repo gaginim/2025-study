@@ -29,6 +29,8 @@ spring:
   config:
     activate:
       on-profile: local
+    import:
+      - classpath:database.yaml
 server:
   port: 4298
 ---

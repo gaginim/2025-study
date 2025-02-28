@@ -15,6 +15,7 @@
 13. [해야할것] rabbitMQ
 14. [해야할것] junitTest
 15. [해야할것] spring modulith 추가해보기
+16. redis 연동 및 pubsub 예제 추가
 
 # vault 적용 사전작업
 
