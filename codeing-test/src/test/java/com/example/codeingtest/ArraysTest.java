@@ -12,13 +12,11 @@ public class ArraysTest {
 
     int[] map = {1, 2, 3, 4, 5};
 
-    // integer array desc ordering
-    // boxed() : IntegerStream -> Integer 로 변경
-    // toArray() : array 로 변경
-    var tmp = Arrays.stream(map).boxed().toArray(Integer[]::new);
-    Arrays.sort(tmp, (a, b) -> b - a);
+    var mapArr = Arrays.stream(map).boxed().toArray(Integer[]::new);
+    Arrays.sort(mapArr, (prev, next) -> next - prev);
 
-    // integer list
-    var tmpList = Arrays.stream(tmp).toList();
+    for (var aa : mapArr) {
+      System.out.println(aa);
+    }
   }
 }
