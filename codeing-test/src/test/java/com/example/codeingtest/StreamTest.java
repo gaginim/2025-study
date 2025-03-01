@@ -68,4 +68,26 @@ public class StreamTest {
                 Collectors.toMap(
                     Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
   }
+
+  @DisplayName(
+      "이 리스트에서 첫 번째 글자를 기준으로 **그룹화(grouping)**하고, 각 그룹 내에서 길이가 5 이상인 단어만 남기고, 그룹을 내림차순으로 정렬한 뒤, 각 그룹 내 단어를 대문자로 변환하여 출력하세요.")
+  @Test
+  void test04() {
+    List<String> items =
+        List.of("apple", "banana", "cherry", "date", "avocado", "blueberry", "carrot");
+
+    var result =
+        items.stream()
+            .filter(s -> s.length() >= 5)
+            .collect(Collectors.groupingBy(s -> s.substring(0, 1)))
+            .entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+            .collect(
+                Collectors.toMap(
+                    Map.Entry::getKey,
+                    s -> s.getValue().stream().map(m -> m.toUpperCase()).toList(),
+                    (e1, e2) -> e1,
+                    LinkedHashMap::new));
+  }
 }
