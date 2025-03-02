@@ -1,4 +1,4 @@
-package com.example.codeingtest;
+package com.example.codeingtest.sorting.probelm11004;
 
 import java.util.Scanner;
 
