@@ -1,22 +1,34 @@
 package com.example.codeingtest.sorting.probelm11004;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Random;
+import java.util.StringTokenizer;
 
-// todo: 문제가 뭔지 찾아보자
+/*
+  랜덤으로 pivot 을 바꾸고 작업하는 방법
+*/
 public class Main11004 {
 
-  public static void main(String[] args) {
+  private static final Random random = new Random();
 
-    Scanner sc = new Scanner(System.in);
-    int mapSize = sc.nextInt();
-    int index = sc.nextInt();
+  public static void main(String[] args) throws IOException {
+
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer st = new StringTokenizer(br.readLine());
+
+    int mapSize = Integer.parseInt(st.nextToken());
+    int index = Integer.parseInt(st.nextToken());
     int[] map = new int[mapSize];
 
+    st = new StringTokenizer(br.readLine());
+
     for (int i = 0; i < mapSize; i++) {
-      map[i] = sc.nextInt();
+      map[i] = Integer.parseInt(st.nextToken());
     }
 
-    quickSort(map, 0, map.length - 1, index);
+    quickSort(map, 0, map.length - 1, index - 1);
 
     System.out.println(map[index - 1]);
   }
@@ -25,26 +37,29 @@ public class Main11004 {
 
     if (start >= end) return;
 
+    int pivotIndex = start + random.nextInt(end - start + 1);
+    swap(arr, pivotIndex, end); // 피벗을 끝으로 이동
+
     int pivot = arr[end];
     int left = start;
-    int right = end;
 
-    while (left <= right) {
-      if (left <= right && arr[left] < pivot) left++;
-      if (left <= right && arr[right] >= pivot) right--;
-      if (left < right) {
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
+    for (int i = start; i < end; i++) {
+      if (arr[i] <= pivot) {
+        swap(arr, left, i);
+        left++;
       }
     }
 
-    int temp = arr[left];
-    arr[left] = pivot;
-    arr[end] = temp;
+    swap(arr, left, end);
 
     if (left == index) return;
     else if (left > index) quickSort(arr, start, left - 1, index);
     else quickSort(arr, left + 1, end, index);
+  }
+
+  private static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 }
