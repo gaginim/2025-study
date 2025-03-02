@@ -1,6 +1,6 @@
 package com.example.codeingtest.sorting.probelm2775;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 /*
  1. 퀵정렬을 했으나 메모리 초과 발생
@@ -8,55 +8,39 @@ import java.util.Scanner;
 public class MainQuickSort2775 {
 
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    var line = sc.nextInt();
-    int[] map = new int[line];
 
-    for (int i = 0; i < line; i++) {
-      map[i] = sc.nextInt();
-    }
+    int[] map = {8, 3, 5, 533, 67, 6, 89, 32};
+    int line = map.length;
+    quickSort(map, 0, line - 1);
 
-    for (int i = 0; i < line; i++) {
-      System.out.println(map[i]);
-    }
-
-    //    int[] map = {8, 3, 5, 533, 67, 6, 89, 32};
-    //    int line = map.length;
-    quickSort(map, 0, line);
+    System.out.println(Arrays.toString(map));
   }
 
   public static void quickSort(int[] arr, int start, int end) {
-    if (Math.abs(end - start) <= 1) return;
+    if (start >= end) return;
 
-    int pivot = arr[end - 1];
-    int[] orderMap = new int[arr.length];
-    boolean[] visited = new boolean[arr.length];
+    int pivot = arr[end];
+    int left = start;
+    int right = end - 1;
 
-    int index = 0;
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] < pivot) {
-        orderMap[index++] = arr[i];
-        visited[i] = true;
+    while (left <= right) {
+      while (left <= right && arr[left] < pivot) left++;
+      while (left <= right && arr[right] >= pivot) right--;
+
+      if (left < right) {
+        swap(arr, left, right);
       }
     }
 
-    int firstBiggerPivot = -1;
-    for (int i = start; i < arr.length; i++) {
-      if (!visited[i]) {
-        if (firstBiggerPivot == -1) firstBiggerPivot = index;
-        orderMap[index++] = arr[i];
-      }
-    }
+    swap(arr, right + 1, end);
 
-    int changeItem = orderMap[firstBiggerPivot];
-    orderMap[firstBiggerPivot] = pivot;
-    orderMap[end - 1] = changeItem;
+    quickSort(arr, start, left - 1);
+    quickSort(arr, left + 1, end);
+  }
 
-    for (int i = 0; i < arr.length; i++) {
-      arr[i] = orderMap[i];
-    }
-
-    quickSort(arr, 0, firstBiggerPivot);
-    quickSort(arr, firstBiggerPivot + 1, end);
+  private static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 }
