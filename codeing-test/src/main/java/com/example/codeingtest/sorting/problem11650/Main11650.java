@@ -1,4 +1,4 @@
-package com.example.codeingtest.sorting;
+package com.example.codeingtest.sorting.problem11650;
 
 import java.util.ArrayList;
 import java.util.Comparator;
