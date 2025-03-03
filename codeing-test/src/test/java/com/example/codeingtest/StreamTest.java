@@ -74,7 +74,18 @@ public class StreamTest {
   @Test
   void test04() {
     List<String> items =
-        List.of("apple", "banana", "cherry", "date", "avocado", "blueberry", "carrot");
+        List.of("apple", "banana", "cherry", "cherry", "date", "avocado", "blueberry", "carrot");
+
+    // LinkedHashMap 은 중복 허용안함
+    // HashMap 은 중복 허용
+    Map<String, List<String>> revised =
+        items.stream()
+            .filter(s -> s.length() >= 5)
+            .collect(
+                Collectors.groupingBy(
+                    s -> s.substring(0, 1),
+                    HashMap::new,
+                    Collectors.mapping(String::toUpperCase, Collectors.toList())));
 
     var result =
         items.stream()
