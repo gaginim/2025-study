@@ -37,6 +37,6 @@ public class Main11650 {
 
     map.stream()
         .sorted(Comparator.comparing(Point::getX).thenComparing(Point::getY))
-        .forEach(point -> System.out.println(point.getX() + " " + point.getY()));
+        .forEach(s -> System.out.println(s.getX() + " " + s.getY()));
   }
 }

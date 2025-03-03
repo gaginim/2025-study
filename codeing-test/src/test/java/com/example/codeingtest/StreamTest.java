@@ -87,6 +87,23 @@ public class StreamTest {
                     HashMap::new,
                     Collectors.mapping(String::toUpperCase, Collectors.toList())));
 
+    Map<String, Set<String>> revised2 =
+        items.stream()
+            .filter(s -> s.length() > 5)
+            .collect(
+                Collectors.groupingBy(
+                    s -> s.substring(0, 1),
+                    HashMap::new,
+                    Collectors.mapping(String::toUpperCase, Collectors.toSet())));
+
+    items.stream()
+        .filter(s -> s.length() >= 5)
+        .collect(
+            Collectors.groupingBy(
+                s -> s.substring(0, 1),
+                HashMap::new,
+                Collectors.mapping(String::toUpperCase, Collectors.toList())));
+
     var result =
         items.stream()
             .filter(s -> s.length() >= 5)
