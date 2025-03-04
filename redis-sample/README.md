@@ -1,0 +1,1 @@
+./gradlew :redis-sample:clean :redis-sample:build :redis-sample:bootRun --args='--server.port=3001'
