@@ -1,2 +1,3 @@
 rootProject.name = 'study'
 include('spring-common-study', 'spring-jpa-study', 'discoveryservice', 'discovery-service-user', 'discovery-gateway', 'discovery-gateway-service')
+include('redis-sample')

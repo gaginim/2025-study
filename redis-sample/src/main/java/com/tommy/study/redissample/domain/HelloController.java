@@ -1,0 +1,32 @@
+package com.tommy.study.redissample.domain;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+
+  @Autowired StringRedisTemplate redisTemplate;
+
+  @GetMapping("/get-fruit")
+  public String getFruit() {
+    ValueOperations<String, String> ops = redisTemplate.opsForValue();
+    return ops.get("fruit");
+  }
+
+  @GetMapping("/ping")
+  public String hello() {
+    return "hello";
+  }
+
+  @GetMapping("/add-fruit")
+  public String addFruit(@RequestParam String name) {
+    ValueOperations<String, String> ops = redisTemplate.opsForValue();
+    ops.set("fruit", name);
+    return "saved " + name;
+  }
+}
