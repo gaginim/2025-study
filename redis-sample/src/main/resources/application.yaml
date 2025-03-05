@@ -10,3 +10,5 @@ spring:
       port: 6379
   session:
     timeout: 5000
+  cache:
+    type: redis

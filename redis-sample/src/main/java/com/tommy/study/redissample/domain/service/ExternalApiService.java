@@ -2,6 +2,7 @@ package com.tommy.study.redissample.domain.service;
 
 import com.tommy.study.redissample.domain.User;
 import java.util.List;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,6 +23,8 @@ public class ExternalApiService {
         .getName();
   }
 
+  // ageKey::{userId} 로 redis 에 저장
+  @Cacheable(cacheNames = "ageKey", key = "#userId")
   public int getUserAge(String userId) throws InterruptedException {
 
     // 외부 서비스나 db 호출
