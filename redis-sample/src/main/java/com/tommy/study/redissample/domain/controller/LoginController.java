@@ -1,4 +1,4 @@
-package com.tommy.study.redissample.domain;
+package com.tommy.study.redissample.domain.controller;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.GetMapping;
