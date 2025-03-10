@@ -11,7 +11,6 @@ public class Main1253 {
 
     int size = sc.nextInt();
     int[] map = new int[size];
-    boolean[] visited = new boolean[size];
 
     for (int i = 0; i < size; i++) {
       map[i] = sc.nextInt();
@@ -26,7 +25,6 @@ public class Main1253 {
       int right = map.length - 1;
 
       while (left < right) {
-
         if (left == i) {
           left++;
           continue;
@@ -36,17 +34,17 @@ public class Main1253 {
           continue;
         }
 
-        int sum = map[left] + map[right];
-        if (sum == goal) {
+        if (map[left] + map[right] == goal) {
           result++;
           break;
-        } else if (sum < goal) {
-          left++;
-        } else {
+        } else if (map[left] + map[right] > goal) {
           right--;
+        } else {
+          left++;
         }
       }
     }
+
     System.out.println(result);
   }
 }

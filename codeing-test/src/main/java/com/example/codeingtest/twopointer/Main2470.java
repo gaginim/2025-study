@@ -16,17 +16,17 @@ public class Main2470 {
     }
     Arrays.sort(map);
 
+    int min = Integer.MAX_VALUE;
     int left = 0;
     int right = map.length - 1;
 
-    int min = Integer.MAX_VALUE;
     int[] result = new int[2];
     while (left < right) {
       int sum = map[left] + map[right];
-      int absSum = Math.abs(map[left] + map[right]);
+      int sumAbs = Math.abs(sum);
 
-      if (absSum < min) {
-        min = absSum;
+      if (sumAbs < min) {
+        min = sumAbs;
         result[0] = map[left];
         result[1] = map[right];
       }
@@ -38,6 +38,6 @@ public class Main2470 {
       }
     }
 
-    System.out.print(result[0] + " " + result[1]);
+    System.out.println(result[0] + " " + result[1]);
   }
 }
