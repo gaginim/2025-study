@@ -15,30 +15,14 @@ public class Main1644 {
     boolean[] numbers = new boolean[num + 1];
     ArrayList<Integer> prime_numbers = new ArrayList<>();
 
-    numbers[0] = numbers[1] = true;
-    for (int i = 2; i * i <= num; i++) {
-      if (!numbers[i]) for (int j = i * i; j <= num; j += i) numbers[j] = true;
-    }
-    for (int i = 1; i <= num; i++) {
-      if (!numbers[i]) prime_numbers.add(i);
-    }
+    // todo: 자연수 만들기
 
     int result = 0;
     int start = 0;
     int end = 0;
     int temp = 0;
 
-    while (true) {
-      if (temp > num) {
-        temp -= prime_numbers.get(start++);
-      } else if (temp < num) {
-        if (end == prime_numbers.size()) break;
-        temp += prime_numbers.get(end++);
-      } else {
-        result++;
-        temp -= prime_numbers.get(start++);
-      }
-    }
+    // todo: 실제문제
 
     System.out.println(result);
   }
