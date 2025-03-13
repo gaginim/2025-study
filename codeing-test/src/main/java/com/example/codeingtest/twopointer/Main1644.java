@@ -4,6 +4,7 @@ import java.util.*;
 
 /*
  반드시 해야할 점: 소수점 만들기!!
+ todo: 주말에 다시 풀기
 */
 public class Main1644 {
 
