@@ -1,4 +1,4 @@
-package com.example.codeingtest;
+package com.example.codeingtest.softeer;
 
 import java.util.Scanner;
 import java.util.Stack;
